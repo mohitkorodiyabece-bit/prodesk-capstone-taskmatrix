@@ -356,8 +356,6 @@ The UI/UX design will be created in Figma before development begins.
 
 ### Public Figma Link
 
-Replace the placeholder below after publishing the Figma file:
-
 **Figma File:** [View TaskMatrix UI/UX Wireframes](https://www.figma.com/design/fAYzV9dXMrd7FBxHI49H0S/TaskMatrix-%E2%80%93-UI-UX-Wireframes?node-id=0-1&t=LuWmwfozPDE2Gaix-1)
 ### Design Principles
 
