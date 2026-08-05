@@ -592,67 +592,104 @@ User ──< Notification
 
 ## Frontend State Tree
 
-The global state will be divided into focused Zustand stores.
+The global frontend state will be divided into focused Zustand stores.
 
 ```text
-Global State
+TASKMATRIX GLOBAL STATE
 │
 ├── authStore
-│   ├── user
-│   ├── isAuthenticated
-│   ├── isLoading
-│   ├── login()
-│   ├── register()
-│   ├── logout()
-│   └── getCurrentUser()
+│   ├── State
+│   │   ├── user
+│   │   ├── isAuthenticated
+│   │   ├── isLoading
+│   │   └── error
+│   └── Actions
+│       ├── register()
+│       ├── login()
+│       ├── logout()
+│       ├── getCurrentUser()
+│       └── clearError()
 │
 ├── workspaceStore
-│   ├── workspaces
-│   ├── activeWorkspace
-│   ├── workspaceMembers
-│   ├── fetchWorkspaces()
-│   ├── createWorkspace()
-│   └── updateWorkspace()
+│   ├── State
+│   │   ├── workspaces
+│   │   ├── activeWorkspace
+│   │   ├── isLoading
+│   │   └── error
+│   └── Actions
+│       ├── fetchWorkspaces()
+│       ├── createWorkspace(data)
+│       ├── updateWorkspace(id, data)
+│       ├── deleteWorkspace(id)
+│       ├── setActiveWorkspace(id)
+│       └── clearError()
 │
 ├── projectStore
-│   ├── projects
-│   ├── activeProject
-│   ├── projectFilters
-│   ├── fetchProjects()
-│   ├── createProject()
-│   └── updateProject()
+│   ├── State
+│   │   ├── projects
+│   │   ├── activeProject
+│   │   ├── isLoading
+│   │   └── error
+│   └── Actions
+│       ├── fetchProjects(workspaceId)
+│       ├── createProject(data)
+│       ├── updateProject(id, data)
+│       ├── deleteProject(id)
+│       ├── setActiveProject(id)
+│       └── clearError()
 │
 ├── boardStore
-│   ├── board
-│   ├── columns
-│   ├── tasks
-│   ├── selectedTask
-│   ├── fetchBoard()
-│   ├── createTask()
-│   ├── updateTask()
-│   └── moveTask()
+│   ├── State
+│   │   ├── boards
+│   │   ├── activeBoard
+│   │   ├── columns
+│   │   ├── tasks
+│   │   ├── isLoading
+│   │   └── error
+│   └── Actions
+│       ├── fetchBoard(projectId)
+│       ├── createBoard(data)
+│       ├── updateBoard(id, data)
+│       ├── createColumn(data)
+│       ├── updateColumn(id, data)
+│       ├── deleteColumn(id)
+│       ├── createTask(data)
+│       ├── updateTask(id, data)
+│       ├── deleteTask(id)
+│       ├── moveTask(taskId, columnId, position)
+│       ├── setActiveBoard(id)
+│       └── clearError()
 │
 ├── notificationStore
-│   ├── notifications
-│   ├── unreadCount
-│   ├── fetchNotifications()
-│   └── markAsRead()
+│   ├── State
+│   │   ├── notifications
+│   │   ├── unreadCount
+│   │   ├── isLoading
+│   │   └── error
+│   └── Actions
+│       ├── fetchNotifications()
+│       ├── markAsRead(id)
+│       ├── markAllAsRead()
+│       ├── deleteNotification(id)
+│       ├── clearNotifications()
+│       └── clearError()
 │
 └── uiStore
-    ├── sidebarOpen
-    ├── activeModal
-    ├── theme
-    ├── globalSearch
-    └── toggleSidebar()
+    ├── State
+    │   ├── theme
+    │   ├── sidebarOpen
+    │   ├── modalOpen
+    │   ├── modalType
+    │   └── modalData
+    └── Actions
+        ├── setTheme(theme)
+        ├── toggleSidebar()
+        ├── openModal(type, data)
+        ├── closeModal()
+        └── resetUI()
 ```
 
-Local component state will be used for temporary data such as:
-
-- Form values
-- Dropdown state
-- Modal state
-- Hover state
-- Temporary validation messages
+Local component state will be used for temporary form values, dropdown states, hover states, and validation messages.
 
 ---
 
