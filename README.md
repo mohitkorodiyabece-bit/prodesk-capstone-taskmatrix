@@ -418,8 +418,6 @@ The exported diagrams will be saved inside the `docs` directory.
 
 ![TaskMatrix State Tree](./docs/taskmatrix-state-tree.png)
 
-> The images above will appear after `taskmatrix-erd.png` and `taskmatrix-state-tree.png` are uploaded to the `docs` folder.
-
 ---
 
 ## Database Design
